@@ -16,14 +16,15 @@ import java.nio.file.Path;
 
 public class Controller {
 
-    public static String txtCase = "C:/";
+    public static String txtCase;
+    public static String mp3Case;
 
     @FXML
-    private ComboBox choose1;
+    private ComboBox choose1, choose2;
     @FXML
-    private Button button1;
+    private Button button1, button2, button3;
     @FXML
-    private TextField path1;
+    private TextField path1, path2, path3;
 
 
     public Controller() {
@@ -39,6 +40,7 @@ public class Controller {
                 ".txt"
         );
         choose1.setItems(options);
+        choose2.setItems(options);
     }
 
     // Set the path to listen:
@@ -51,6 +53,12 @@ public class Controller {
             Object source = event.getSource();
             if (source == button1) {
                 path1.setText(chosenFile.getAbsolutePath());
+            }else if(source==button2){
+                path2.setText(chosenFile.getAbsolutePath());
+                checkAndChose(choose1, path2);
+            }else if(source==button3){
+                path3.setText(chosenFile.getAbsolutePath());
+                checkAndChose(choose2, path3);
             }
 
         }
@@ -69,4 +77,21 @@ public class Controller {
         thread.start();
     }
 
+
+
+
+    private void checkAndChose(ComboBox comboBox,TextField textField){
+        String extension=(String)comboBox.getValue();
+        switch (extension){
+            case ".txt":
+                txtCase=textField.getText();
+                break;
+            case ".mp3":
+                mp3Case=textField.getText();
+                break;
+            default:
+                System.out.println("Error");
+
+        }
+    }
 }

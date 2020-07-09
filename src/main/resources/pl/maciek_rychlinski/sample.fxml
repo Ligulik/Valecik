@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane fx:id="stackPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
-           xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.maciek_rychlinski.Controller">
+<StackPane fx:id="stackPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.maciek_rychlinski.Controller">
     <children>
-        <FlowPane prefHeight="200.0" prefWidth="200.0">
-            <children>
-                <ComboBox fx:id="choose1" accessibleText="123" promptText="Rodzaj pliku"/>
-                <Button fx:id="button1" alignment="CENTER" mnemonicParsing="false" onAction="#find"
-                        text="Wybierz Lokalizacje">
-                    <FlowPane.margin>
-                        <Insets left="100.0"/>
-                    </FlowPane.margin>
-                </Button>
-                <TextField fx:id="path1" prefHeight="25.0" prefWidth="451.0">
-                    <FlowPane.margin>
-                        <Insets left="30.0"/>
-                    </FlowPane.margin>
-                </TextField>
-            </children>
-        </FlowPane>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Lokalizcja pobiernaych plików" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+                <TextField fx:id="path1" editable="false" prefHeight="25.0" prefWidth="451.0" />
+                <Button fx:id="button1" alignment="CENTER" mnemonicParsing="false" onAction="#find" text="Wybierz Lokalizacje" />
+            <Label text="Ustal ścieżki dla plików" />
+            <TextField fx:id="path2" />
+                <ComboBox fx:id="choose1" accessibleText="123" promptText="Rodzaj pliku" />
+            <Button fx:id="button2" mnemonicParsing="false" onAction="#find" text="Wybierz lokalizacje" />
+            <TextField fx:id="path3" />
+            <ComboBox fx:id="choose2" prefWidth="150.0" promptText="Rodzaj pliku" />
+            <Button fx:id="button3" mnemonicParsing="false" onAction="#find" text="Wybierz lokalizacje" />
+         </children>
+      </VBox>
     </children>
 </StackPane>

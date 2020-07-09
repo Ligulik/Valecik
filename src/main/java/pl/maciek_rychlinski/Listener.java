@@ -20,8 +20,7 @@ public class Listener {
             while ((watchKey = watchService.take()) != null) {
                 for (WatchEvent<?> event : watchKey.pollEvents()) {
 
-//                    System.out.println("Zauważono zmiany");
-//                    System.out.println(pathToListen.toString());
+//
                     System.out.println(event.context().toString());
 
                     // switch for others options in future
@@ -29,6 +28,11 @@ public class Listener {
                     switch (getExtension(event.context().toString())) {
                         case ("txt"):
                             to = Controller.txtCase;
+                            moveInfo(event.context().toString(),Controller.txtCase);
+                            break;
+                        case ("mp3"):
+                            to=Controller.mp3Case;
+                            moveInfo(event.context().toString(),Controller.mp3Case);
                             break;
                         default:
                             to = "F:/";
@@ -44,6 +48,11 @@ public class Listener {
     }
 
 
+
+
+    // Help methods:
+
+
     private String getExtension(String entry) {
 
         String extension = null;
@@ -57,4 +66,8 @@ public class Listener {
         return extension;
     }
 
+
+    private void moveInfo(String file, String localization){
+        System.out.println("Plik "+file+" przeniesiono do "+localization);
+    }
 }
