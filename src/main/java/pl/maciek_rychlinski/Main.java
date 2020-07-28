@@ -6,8 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import java.io.*;
+
 
 public class Main extends Application {
+
+
+    public Main() throws IOException {
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -19,20 +25,25 @@ public class Main extends Application {
         loader.setLocation(this.getClass().getResource("/pl/maciek_rychlinski/sample.fxml"));
 
 
-        // Download controller from FXML:
-
-        Controller controller = loader.getController();
-
         // Load i set the scene:
 
         StackPane stackPane = loader.load();
         Scene scene = new Scene(stackPane);
 
-
         Parent root = FXMLLoader.load(getClass().getResource("/pl/maciek_rychlinski/sample.fxml"));
         primaryStage.setTitle("Valet");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        // Download controller from FXML:
+
+        Controller controller = loader.getController();
+
+        // Download the saved options;
+
+        controller.checkMemory();
+
+
     }
 
 

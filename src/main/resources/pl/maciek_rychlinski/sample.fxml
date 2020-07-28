@@ -6,7 +6,7 @@
 
 <StackPane fx:id="stackPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.maciek_rychlinski.Controller">
     <children>
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <VBox fx:id="layout" prefHeight="200.0" prefWidth="100.0">
          <children>
             <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Lokalizcja pobiernaych plików" textAlignment="CENTER" underline="true">
                <font>
@@ -22,6 +22,9 @@
             <TextField fx:id="path3" />
             <ComboBox fx:id="choose2" prefWidth="150.0" promptText="Rodzaj pliku" />
             <Button fx:id="button3" mnemonicParsing="false" onAction="#find" text="Wybierz lokalizacje" />
+            <Button fx:id="testButton" mnemonicParsing="false" onAction="#checkMemory" text="Wczytaj" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveMemory" text="Zapisz" />
+            <Button fx:id="newButton" mnemonicParsing="false" onAction="#createNewButton" text="Dodaj opcje" />
          </children>
       </VBox>
     </children>
